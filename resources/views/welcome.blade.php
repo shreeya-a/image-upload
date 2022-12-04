@@ -17,7 +17,15 @@
                     <div class="card-header">
                         <h3>Upload Image</h3>
                     </div>
-                    <img src="{{asset('/storage/images/gdwkxxU4mpM7aKu3D8di91ipvP3rkqg8gFGBxg56.png')}}" alt="">
+                    <ul class=" list-unstyled ">
+                    @foreach($images as $image)
+                        <li >
+                             <!-- {{$image->name}} -->
+                             <img src="{{asset('/storage/'.$image->name)}}" alt="" width="200" height="200">
+                        </li>
+                    @endforeach
+                    </ul>
+                    <!-- <img src="{{asset('/storage/images/gdwkxxU4mpM7aKu3D8di91ipvP3rkqg8gFGBxg56.png')}}" alt=""> -->
                     <div class="card-body">
                         <form action="{{route('uploadImage')}}" method="POST" enctype="multipart/form-data">
                             @csrf
